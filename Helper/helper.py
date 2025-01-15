@@ -23,3 +23,6 @@ def get_valid_int(prompt, min_value=None, max_value=None):
                 return value
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+
+def is_in_range(char, start, end):
+    return ord(start) <= ord(char) <= ord(end)
