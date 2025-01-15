@@ -1,8 +1,25 @@
 import turtle
+from Helper import helper as util
 
 
-def draw_tree(t, branch_length, left_angle, right_angle, depth, reduction_factor):
+def init_turtle(color,speed):
+    screen = turtle.Screen()
+    screen.bgcolor("white")
+    t = turtle.Turtle()
+    t.left(90)  # Point the turtle upwards
+    t.color(color)
+    t.speed(speed)  
+    t.penup()
+    t.goto(0, -200)  # Start at the bottom of the screen
+    t.pendown()
+    return t,screen
+
+def close_turtle(t,screen):
+    t.hideturtle()    
+    screen.exitonclick()
     
+def draw_tree(t, branch_length, left_angle, right_angle, depth, reduction_factor):
+    """Draws a tree using recursion."""
     if depth == 0:
         return
     
@@ -18,26 +35,16 @@ def draw_tree(t, branch_length, left_angle, right_angle, depth, reduction_factor
     t.backward(branch_length)
 
 def main(): 
-    left_angle = float(input("Enter left branch angle: "))
-    right_angle = float(input("Enter right branch angle: "))
-    starting_branch_length = float(input("Enter starting branch length: "))
-    recursion_depth = int(input("Enter recursion depth: "))
-    reduction_factor = int(input("Enter branch length reduction percent : "))
+    left_angle = util.get_valid_float("Enter left branch angle: ")
+    right_angle = util.get_valid_float("Enter right branch angle: ")
+    starting_branch_length = util.get_valid_float("Enter starting branch length: ")
+    recursion_depth = util.get_valid_int("Enter recursion depth: ")
+    reduction_factor = util.get_valid_int("Enter branch length reduction percent : ",0,100)
     
   
-    screen = turtle.Screen()
-    screen.bgcolor("white")
-    t = turtle.Turtle()
-    t.left(90)  # Point the turtle upwards
-    t.color("brown")
-    t.speed(0)  
-    t.penup()
-    t.goto(0, -200)  # Start at the bottom of the screen
-    t.pendown()
-
-    draw_tree(t, starting_branch_length, left_angle, right_angle, recursion_depth, reduction_factor/100) 
-    t.hideturtle()    
-    screen.exitonclick()
+    t1,screen = init_turtle("brown",0)    
+    draw_tree(t1, starting_branch_length, left_angle, right_angle, recursion_depth, reduction_factor/100) 
+    close_turtle(t1,screen)   
    
 
 if __name__ == "__main__":
