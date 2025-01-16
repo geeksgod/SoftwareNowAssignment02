@@ -2,7 +2,7 @@ import os
 import csv
 import time 
 
-temperatures_folder = "C:/Users/shres/Downloads/HIT137 Assignment 2 SS 2024/temperature_data"
+temperatures_folder = "Temperature_data"
 
 seasons_data = {
     "Summer": [12, 1, 2],  # December, January, February
@@ -63,7 +63,7 @@ def calculate_seasonal_averages():
     print("Saving seasonal averages... Please wait.")
     time.sleep(2) 
 
-    output_path = "C:/Users/shres/OneDrive/Desktop/CDU/New folder/SoftwareNowAssignment02/average_temp.txt"
+    output_path = "Temperature_output_files/average_temp.txt"
     try:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, "w") as file:
@@ -110,7 +110,7 @@ def find_largest_temp_range():
     print("Saving largest temperature range... Please wait.")
     time.sleep(2)  
 
-    output_path = "C:/Users/shres/OneDrive/Desktop/CDU/New folder/SoftwareNowAssignment02/largest_temp_range_station.txt"
+    output_path = "Temperature_output_files/largest_temp_range_station.txt"
     try:
         with open(output_path, "w") as file:
             file.write("Station(s) with Largest Temperature Range:\n")
@@ -166,7 +166,7 @@ def find_warmest_and_coolest_stations():
     print("Saving warmest and coolest station... Please wait.")
     time.sleep(2) 
     
-    output_path = "C:/Users/shres/OneDrive/Desktop/CDU/New folder/SoftwareNowAssignment02/warmest_and_coolest_station.txt"
+    output_path = "Temperature_output_files/warmest_and_coolest_station.txt"
     try:
         with open(output_path, "w") as file:
             file.write("Warmest Station(s):\n")
@@ -177,6 +177,7 @@ def find_warmest_and_coolest_stations():
     except Exception as e:
         print(f"Error: Failed to save warmest and coolest stations. Details: {e}")
 
-calculate_seasonal_averages()
-find_largest_temp_range()
-find_warmest_and_coolest_stations()
+if __name__ == "__main__":
+    calculate_seasonal_averages()
+    find_largest_temp_range()
+    find_warmest_and_coolest_stations()

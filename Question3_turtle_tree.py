@@ -3,14 +3,15 @@ from Helper import helper as util
 
 
 def init_turtle(color,speed):
+    """ This function initializas the trutle and is reuseable incase we have to make multiple turtles"""
     screen = turtle.Screen()
     screen.bgcolor("white")
     t = turtle.Turtle()
-    t.left(90)  # Point the turtle upwards
+    t.left(90)  
     t.color(color)
     t.speed(speed)  
     t.penup()
-    t.goto(0, -200)  # Start at the bottom of the screen
+    t.goto(0, -200) 
     t.pendown()
     return t,screen
 

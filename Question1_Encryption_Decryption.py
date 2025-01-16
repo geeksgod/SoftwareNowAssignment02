@@ -1,7 +1,9 @@
 from Helper import helper as util
 
 def encrypt_text(input_file, output_file,key_file, n, m):
+    """This function uses ceaser cipher logic to encrypt the text."""
     def encrypt_character(c):
+        #encryption logic
         if 'a' <= c <= 'm':  
             return "s",chr(((ord(c) - ord("a") + (n * m)) % 26) + ord("a"))
         elif 'n' <= c <= 'z':  
@@ -36,7 +38,9 @@ def encrypt_text(input_file, output_file,key_file, n, m):
 
 
 def decrypt_text(input_file, output_file,key_file, n, m):
+    """This function reverses the ceaser cypher"""
     def decrypt_character(key,c):
+            #decryption logic
             if key == "s": 
              return chr(((ord(c) - ord("a") - (n * m)) % 26) + ord("a"))
             elif key == "t":  
@@ -50,14 +54,15 @@ def decrypt_text(input_file, output_file,key_file, n, m):
     with open(input_file, 'r') as f:
         encrypted_text = f.read()
     
-    """ We are generating key because the 2 algorithms produced same character encryption for different char"""
+    """ We are generating key because the 2 encryption criteria used, produced same character 
+    encryption for different character"""
     with open(key_file,'r') as f:
         keys = f.read()
     
     
     decrypted_text = ""
     for key,c in zip(keys,encrypted_text):
-        decrypted_text =  decrypted_text + decrypt_character(key,c)
+        decrypted_text =  decrypted_text + decrypt_character(key,c) #using key to decrypt the encrypted text
     
 
     with open(output_file, 'w') as f:
@@ -82,10 +87,10 @@ def verify_decryption(original_file, decrypted_file):
 
 if __name__ == "__main__":
     print("Program started...")
-    raw_text_file = "Encryptionfiles/raw_text.txt"
-    encrypted_text_file = "Encryptionfiles/encrypted_text.txt"
-    decrypted_text_file = "Encryptionfiles/decrypted_text.txt"
-    key_file = "Encryptionfiles/key_file.txt"
+    raw_text_file = "Encryption_files/raw_text.txt"
+    encrypted_text_file = "Encryption_files/encrypted_text.txt"
+    decrypted_text_file = "Encryption_files/decrypted_text.txt"
+    key_file = "Encryption_files/key_file.txt"
 
     n = util.get_valid_int("Please enter the first integer:") 
     m = util.get_valid_int("Please enter the second integer:") 
