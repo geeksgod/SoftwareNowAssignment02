@@ -35,9 +35,9 @@
 ├── Temperature_data                    &emsp;&emsp; ->  _Contains data of temperature from different stations_  
 ├── Temperature_output_files                   &emsp;&emsp;  -> _Contains input and output of temperature calculation (Question 2)_  
     │   ├── average_temp.txt            &emsp;&emsp; -> _average temperature for the seasons is written in this file_  
-    │   ├── largest_temp_range_station.txt      &emsp;&emsp; -> _Station with largest temperature range  is written in this file_ 
-    │   └── warmest_and_coolest_station.txt     &emsp;&emsp; -> _Station with warmest and coolest temperature is written in this file_
-├── Question1_Encryption_Decryption.py  &emsp;&emsp; ->  _Contains solution for Question1_ 
+    │   ├── largest_temp_range_station.txt      &emsp;&emsp; -> _Station with largest temperature range  is written in this file_  
+    │   └── warmest_and_coolest_station.txt     &emsp;&emsp; -> _Station with warmest and coolest temperature is written in this file_  
+├── Question1_Encryption_Decryption.py  &emsp;&emsp; ->  _Contains solution for Question1_  
 ├── Question2_TemperatureAverage.py &emsp;&emsp;  -> _Contains solution for Question2_  
 ├── Question3_turtle_tree.py &emsp;&emsp; ->  _Contains solution for Question3_  
 
